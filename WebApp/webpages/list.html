@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title></title>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <!-- 自适应顶栏，手机端隐藏后面三个选项-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <!-- 布局div，手机端隐藏-->
+            <div class="container col-md-1  col-sm-1 col-xs-0 visible-lg-block  visible-md-block" style="height:50px;"></div>
+
+            <!-- 标签div，显示当前页面名称-->
+            <div class="container col-xs-12 col-md-2 col-sm-5">
+                <a class="navbar-brand col-xs-12 col-md-12" style="text-align:center; color:#007aff" href="#">启封</a>
+            </div>
+
+            <!-- 布局div，手机端隐藏-->
+            <div class="container col-md-5  col-sm-2 hidden-xs" style="height:50px;"></div>
+
+            <!-- 导航div，手机端隐藏-->
+            <div class="container col-md-3 col-sm-4 hidden-xs" style="padding:15px; height:50px;">
+                <div class="container col-md-4 col-sm-4 hidden-xs">
+                    <a style="padding-top:15px; padding-bottom:15px; color:#808080; height:50px;" href="edited.html">执笔</a>
+                </div>
+                <div class="container col-md-4 col-sm-4 hidden-xs">
+                    <a style="padding-top:15px; padding-bottom:15px;color:#808080; height:50px;" href="share.html">传书</a>
+                </div>
+                <div class="container col-md-4 col-sm-4 hidden-xs">
+                    <a style="padding-top:15px; padding-bottom:15px; color:#808080; height:50px;" href="aboutMe.html">自省</a>
+                </div>
+            </div>
+
+            <!-- 布局div，手机端隐藏-->
+            <div class="container col-md-1 col-xs-0 visible-lg-block  visible-md-block  hidden-sm" style="height:50px;"> </div>
+        </nav>
+
+        <!-- 自适应底栏，手机端显示，pc端隐藏-->
+        <nav class="navbar navbar-default navbar-fixed-bottom  visible-xs-block" style="color:#808080;">
+            <div class="container col-xs-3 col-md-3  ">
+                <a class="glyphicon glyphicon-th-list col-xs-10" style="padding:25%; padding-left:40%;color:#007aff" href="list.html"></a>
+            </div>
+            <div class="container col-xs-3 col-md-3  ">
+                <a class="glyphicon glyphicon-pencil" style="padding:25%; padding-left:40%;color:#808080;" href="edited.html"></a>
+            </div>
+            <div class="container col-xs-3 col-md-3">
+                <a class="glyphicon glyphicon-star" style="padding:25%; padding-left:40%;color:#808080" href="share.html"></a>
+            </div>
+            <div class="container col-xs-3 col-md-3">
+                <a class="glyphicon glyphicon-user" style="padding:25%; padding-left:40%;color:#808080;" href="aboutMe.html"></a>
+            </div>
+        </nav>
+    </body>
+</html>

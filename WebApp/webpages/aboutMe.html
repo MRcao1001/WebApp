@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <style>
+        .top-title {
+            transition: top .5s;
+            top: -90px;
+        }
+
+        .top-title2 {
+            transition: top .5s;
+            top: 0px;
+            opacity: 0.4;
+        }
+
+        .hiddened {
+            opacity: 1;
+            top: 0px;
+        }
+
+        .showed {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!--手机端自动隐藏下滑显示顶栏-->
+    <nav class="navbar navbar-default navbar-fixed-top top-title visible-xs-block">
+        <div class="container col-xs-12 ">
+            <a class="navbar-brand col-xs-12" style="text-align:center;color:#007aff" href="#">自省</a>
+        </div>
+    </nav>
+
+    <!--pc端固定顶栏-->
+    <nav class="navbar navbar-default navbar-fixed-top top-title2 visible-md-block visible-lg-block visible-sm-block">
+        <div class="container col-md-1  col-sm-1 col-xs-0 visible-lg-block  visible-md-block" style="height:50px;">
+
+        </div>
+        <div class="container col-xs-12 col-md-2 col-sm-5">
+            <a class="navbar-brand col-xs-12 col-md-12" style="text-align:center;color:#808080; font-weight:bold" href="#">自省</a>
+        </div>
+        <div class="container col-md-5  col-sm-2 hidden-xs" style="height:50px;">
+
+        </div>
+        <div class="container col-md-3 col-sm-4 hidden-xs" style="padding:15px; height:50px;">
+            <div class="container col-md-4 col-sm-4 hidden-xs">
+                <a style="padding-top:15px; padding-bottom:15px; color:#808080;  font-weight:bold; height:50px;" href="list.html">启封</a>
+            </div>
+            <div class="container col-md-4 col-sm-4 hidden-xs">
+                <a style="padding-top:15px; padding-bottom:15px;color:#808080;  font-weight:bold; height:50px;" href="edited.html">执笔</a>
+            </div>
+            <div class="container col-md-4 col-sm-4 hidden-xs">
+                <a style="padding-top:15px; padding-bottom:15px; color:#808080; font-weight:bold; height:50px;" href="share.html">传书</a>
+            </div>
+        </div>
+        <div class="container col-md-1 col-xs-0 visible-lg-block  visible-md-block  hidden-sm" style="height:50px;">
+
+        </div>
+    </nav>
+
+    <!--手机端顶部背景图以及头像，电脑端隐藏-->
+    <div class="col-md-12 visible-xs-block" style="background-image:url(img/bgimg.jpg);background-size:100% 100%; height:250px;">
+        <div style="border-radius:50%; width:100px; height:300px;padding-top:80px;padding-left:70%;">
+            <img src="img/timg.jpg" style="border-radius:50%;  width:100px; height:100px;  box-shadow:0px 0px 10px #888888;" />
+        </div>
+    </div>
+
+    <!--电脑端个人页面，手机端隐藏-->
+    <div class="col-md-12 hidden-xs" style="background-color:#123789;">
+        
+    </div>
+    <div class="col-md-12" style="background-color:#ffffff; height:300px"></div>
+    <div class="col-md-12" style="background-color:#ffffff; height:300px"></div>
+    <div class="col-md-12" style="background-color:#ffffff; height:300px"></div>
+    <div class="col-md-12" style="background-color:#ffffff; height:300px"></div>
+    <div class="col-md-12" style="background-color:#ffffff; height:300px"></div>
+    <div class="col-md-12" style="background-color:#ffffff; height:300px"></div>
+
+
+    <nav class="navbar navbar-default navbar-fixed-bottom  visible-xs-block" style="color:#808080;">
+        <div class="container col-xs-3 col-md-3  ">
+            <a class="glyphicon glyphicon-th-list col-xs-10" style="padding:25%; padding-left:40%;color:#808080" href="list.html"></a>
+        </div>
+        <div class="container col-xs-3 col-md-3  ">
+            <a class="glyphicon glyphicon-pencil" style="padding:25%; padding-left:40%;color:#808080;" href="edited.html"></a>
+        </div>
+        <div class="container col-xs-3 col-md-3">
+            <a class="glyphicon glyphicon-star" style="padding:25%; padding-left:40%;color:#808080" href="share.html"></a>
+        </div>
+        <div class="container col-xs-3 col-md-3">
+            <a class="glyphicon glyphicon-user" style="padding:25%; padding-left:40%;color:#007aff;" href="aboutMe.html"></a>
+        </div>
+    </nav>
+
+    <script>
+        $(function () {
+            var winHeight = $(document).scrollTop();
+
+            $(window).scroll(function () {
+                var scrollY = $(document).scrollTop();// 获取垂直滚动的距离，即滚动了多少
+
+                if (scrollY > 250) { //如果滚动距离大于550px则隐藏，否则删除隐藏类
+                    $('.top-title').addClass('showed');
+                    $('.top-title2').addClass('hiddened');
+                }
+                else {
+                    $('.top-title').removeClass('showed');
+                    $('.top-title2').removeClass('hiddened');
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>
