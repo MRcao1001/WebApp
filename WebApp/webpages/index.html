@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -56,6 +57,19 @@
             background: #ededed;
             color: #303030;
         }
+
+        .tiptop {
+            transition: margin-left.3s;
+            width: 50%;
+            height: 5px;
+            background-color: #800880;
+        }
+
+        @media screen and (max-width: 1180px) {
+            #bujudiv {
+                width: 40%;
+            }
+        }
     </style>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -68,7 +82,7 @@
                     $("#inputlogin").slideDown("slow");
                     $("#inputreg").slideUp("slow");
                     $("#messagebox").slideDown("slow");
-                    
+
                 }
             );
             $("#reg").click(
@@ -96,10 +110,8 @@
 
                     $("#inputlogin-lg").slideDown("slow");
                     $("#inputreg-lg").slideUp("slow");
-                    document.getElementById("reg-lg").style.backgroundColor = "#ffffff";
-                    document.getElementById("reg-lg").style.color = "#808080";
-                    document.getElementById("login-lg").style.backgroundColor = "#800880";
-                    document.getElementById("login-lg").style.color = "#ffffff";
+                    document.getElementById("topline").style.marginLeft = "0px";
+
                     document.getElementById("navbar").style.height = "60px";
                     document.getElementById("navbar").style.backgroundColor = "#ffffff";
 
@@ -110,10 +122,8 @@
 
                     $("#inputreg-lg").slideDown("slow");
                     $("#inputlogin-lg").slideUp("slow");
-                    document.getElementById("reg-lg").style.backgroundColor = "#800880";
-                    document.getElementById("reg-lg").style.color = "#ffffff";
-                    document.getElementById("login-lg").style.backgroundColor = "#ffffff";
-                    document.getElementById("login-lg").style.color = "#808080";
+                    document.getElementById("topline").style.marginLeft = "50%";
+
 
                 }
 
@@ -125,14 +135,26 @@
                 $("#formbtn").css("background-color", "#ededed");
                 $("#formbtn").css("color", "#303030");
             });
+            $("#formbtn2").hover(function () {
+                $("#formbtn2").css("background-color", "#800880");
+                $("#formbtn2").css("color", "#ffffff");
+            }, function () {
+                $("#formbtn2").css("background-color", "#ededed");
+                $("#formbtn2").css("color", "#303030");
+            });
+
+
+
+
         });
     </script>
     <title></title>
 </head>
 <body>
-    <nav class="navbar  navbar-fixed-top navbar-default" id="navbar" style="height:60px; background-color:#ffffff; box-shadow:2px 0px 10px #808080;">
+
+    <nav class="navbar  navbar-fixed-top navbar-default" id="navbar" style="height:60px; background-color:#ffffff; box-shadow:0px 0px 5px #aaaaaa; border-top:solid #800880 3px;">
         <div class="container col-xs-3 col-md-2" style="color:#049ff1; background-color:#ffffff; font-family:'Microsoft New Tai Lue'; font-size:24px; text-align:center; text-shadow: 0px 0px 5px #808080;">
-            <img src="img/云笔logo.jpg" style="width:90px; height:60px;" />
+            <img src="img/云笔logo.jpg" style="width:90px; height:55px;" />
         </div>
         <div class="col-xs-9" id="messagebox" style="font-size:16px; color:#800880; text-align:right; padding:20px;">轻触顶栏取消</div>
     </nav>
@@ -140,7 +162,7 @@
     <!--表单div-->
     <div>
 
-        <div class=" hidden-xs col-lg-7 col-md-7 col-sm-7" style="background-color:#800880; height:500px">
+        <div class=" hidden-xs col-lg-7 col-md-7 col-sm-7" id="bujudiv" style="background-color:#ffffff; height:500px">
 
         </div>
         <!--手机端使用的表单-->
@@ -185,24 +207,27 @@
         </div>
 
         <!--pc端表单-->
-        <div class=" col-lg-4 col-md-4 col-sm-4 hidden-xs" style="box-shadow:0px 0px 5px #d8d8d8 ; width:18%; height:400px; margin-left:8%;margin-right:4%; margin-top:100px; padding:0px;  border:solid 1px #d8d8d8;">
+        <div class=" col-lg-4 col-md-4 col-sm-4 hidden-xs" style="box-shadow:0px 0px 5px #d8d8d8 ; width:350px; height:400px; margin-left:8%;margin-right:4%; margin-top:100px; padding:0px;  border:solid 1px #d8d8d8;">
+            <div id="topline" class="tiptop"></div>
             <div class=" col-lg-12 col-md-12 col-sm-12 hidden-xs" style="padding:0px; border-bottom:solid 1px #b6b6b6;">
-                <div type="button" id="login-lg" class="choised">登&nbsp;录</div>
+                <div type="button" id="login-lg" class="notchoised">登&nbsp;录</div>
                 <div type="button" id="reg-lg" class="notchoised">注&nbsp;册</div>
             </div>
             <div id="inputlogin-lg" style="padding:10px; padding-top:40px; float:left">
-                <form>
+                <form method="post" action="index.ashx">
+                    <input type="hidden" name="_viewstate" value="hidden"/>
                     <div class="input-group" style="margin-top:20px;">
                         <span class="input-group-addon" id="basic-addon1">用户名</span>
-                        <input type="text" class="form-control" placeholder="手机号/邮箱/用户名" aria-describedby="basic-addon1">
+                        <input name="name" value="" type="text" class="form-control" placeholder="手机号/邮箱/用户名" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group" style="margin-top:20px; margin-top:40px;">
                         <span class="input-group-addon" id="basic-addon1">密&nbsp;&nbsp;&nbsp;&nbsp;码</span>
-                        <input type="text" class="form-control" placeholder="您注册时使用的密码" aria-describedby="basic-addon1">
+                        <input name="pwd" value="" type="password" class="form-control" placeholder="您注册时使用的密码" aria-describedby="basic-addon1">
                     </div>
                     <div>
-                        <button type="button" id="formbtn" class="form-btn" style="margin-top:50px;"> 登&nbsp;&nbsp;录 </button>
+                        <button type="submit" value="登录" id="formbtn" class="form-btn" style="margin-top:50px;"> 登&nbsp;&nbsp;录 </button>
                     </div>
+                    <div>@msg</div>
                 </form>
             </div>
 
@@ -229,7 +254,7 @@
                         <input type="text" class="form-control" placeholder="用于找回你的账号" aria-describedby="basic-addon1">
                     </div>
                     <div>
-                        <button type="button" class="btn btn-default form-btn"> 注   册 </button>
+                        <button type="button" id="formbtn2" class="form-btn"> 注&nbsp;&nbsp;册 </button>
                     </div>
                 </form>
             </div>
@@ -237,15 +262,13 @@
         </div>
 
 
-        <div class=" hidden-xs col-lg-1 col-md-1 col-sm-1" style="background-color:#800880; height:500px; float:left;">
 
-        </div>
     </div>
     <div class="visible-xs-block" style="width:100%; padding-top:50px;">
         <img src="img/FFA7D21580FCF318BBA460D741B3DFFD.png" style="width:100%;" />
     </div>
     <div class="visible-xs-block" style="width:100%;height:100px; padding-top:50px; background-color:#fee5af">
-        
+
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom  visible-xs-block" style="height:55px; background-color:#ffffff; box-shadow:0px 0px 10px #d8d8d8;">
